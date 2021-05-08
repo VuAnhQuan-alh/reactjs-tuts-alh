@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  max-width: 1230px;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 2px 6px #555;
+  padding: 0 15px;
+}
+
+/* -- HEADER -- */
+header {
+  width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 2px;
+}
+a:hover {
+  color: lightseagreen;
+}
+ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 15px;
+}
+.iconMenu {
+  display: none;
+}
+.iconCart {
+  position: relative;
+  margin-right: 15px;
+}
+.iconCart span {
+  background: crimson;
+  border-radius: 20px;
+  color: white;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 10px;
+  padding: 5px;
+}
+
+/* -- PRODUCTS -- */
+.products {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.products .card {
+  max-width: 370px;
+  width: 100%;
+  overflow: hidden;
+  height: 570px;
+  box-shadow: 0 0 5px #ccc;
+  padding: 15px;
+  margin: 15px;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  display: block;
+  object-fit: cover;
+}
+.card .box { margin: 15px 0; }
+.card .box h3 {
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card .box p {
+  margin: 10px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  height: 70px;
+}
+.card .box h4 {
+  color: crimson;
+  margin: 10px 0;
+}
+.card .box button {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  background: #333;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* -- DETAILS -- */
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+.details .img-detail {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  height: 450px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.details .img-detail:hover {
+  background-size: 175%;
+  border: 1px solid #ddd;
+  cursor: zoom-in;
+}
+.box-detail {
+  max-width: 500px;
+  width: 100%;
+  margin: 20px;
+}
+.box-detail h3 {
+  color: crimson;
+}
+.box-detail button, .box-detail .btn-cart {
+  border: 1px solid #ccc;
+  outline: none;
+  background: #333;
+  cursor: pointer;
+  color: white;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+.colors button, .sizes button {
+  width: 35px;
+  height: 35px;
+}
+.box-detail p {
+  line-height: 1.5;
+  margin: 10px 0;
+  opacity: 0.8;
+}
+.box-detail .thumb {
+  display: flex;
+  cursor: pointer;
+}
+.box-detail .thumb img {
+  width: 50px;
+  margin: 20px;
+  overflow: hidden;
+}
+.box-detail .btn-cart {
+  padding: 10px 25px;
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* -- CART -- */
+.cart {
+  position: relative;
+  border: 1px solid #ccc;
+  transform: scaleY(0.98);
+}
+.cart .amount {
+  width: 128px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart .amount span {
+  font-weight: 500;
+  text-align: center;
+  color: chocolate;
+  font-size: x-large;
+}
+.cart .amount button {
+  padding: 5px 15px;
+  margin: 0;
+}
+.cart .delete {
+  color: crimson;
+  font-weight: 700;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.total {
+  padding-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.total a {
+  background-color: #333;
+  color: white;
+  padding: 10px 25px;
+}
+.total h3 {
+  margin-right: 50px;
+  color: crimson;
+}
+
+/* -- RESPONSIVE -- */
+
+@media (max-width: 768px) {
+  header {
+    justify-content: space-between;
+  }
+  ul {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 50vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0.95;
+    z-index: 2;
+  }
+  ul li {
+    margin-top: 10px;
+  }
+  .iconMenu {
+    display: block;
+    cursor: pointer;
+  }
+  ul li .iconMenu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .details {
+    padding: 0;
+  }
+  .box-detail .thumb img {
+    width: 40px;
+  }
+  .details .img-detail {
+    height: 350px;
+  }
+}
