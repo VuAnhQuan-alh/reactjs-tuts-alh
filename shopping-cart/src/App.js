@@ -15,9 +15,9 @@ function App() {
 
           <section>
             <Routes>
-              <Route path="shop" element={<Shop />} />
-              <Route path="product/:id" element={<Details />} />
-              <Route path="cart" element={<Cart />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:id" element={<Details />} />
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           </section>
         </Router>

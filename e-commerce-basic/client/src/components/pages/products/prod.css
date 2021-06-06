@@ -1,0 +1,84 @@
+.products {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  margin: 20px auto;
+}
+
+/* -- Product item -- */
+@import url("../utils/prodItem/style.css");
+
+/* -- Product detail -- */
+@import url("./detail.css");
+
+/* -- Delete Product -- */
+
+.header_delete {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.header_delete .loading {
+  margin: 0;
+  transform: scale(0.25, 0.25);
+}
+.delete_all {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.delete_all input {
+  height: 25px;
+  width: 25px;
+  margin: 0 15px;
+}
+.delete_all span {
+  text-transform: uppercase;
+  color: rgb(3, 165, 206);
+  letter-spacing: 1.3px;
+}
+.delete_all button {
+  border: 1px solid crimson;
+  padding: 10px 25px;
+  color: crimson;
+  text-transform: uppercase;
+}
+
+/* -- Filters -- */
+.filter_menu {
+  width: 100%;
+  min-height: 40px;
+  margin: 15px 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filter_menu select, input {
+  border: 1px solid #ccc;
+  outline: none;
+  height: 40px;
+  padding: 0 8px;
+}
+.filter_menu input {
+  flex: 1;
+  margin: 0 20px;
+}
+
+/* -- LoadMore -- */
+.load_more {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.load_more button {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  text-transform: center;
+  background: #ddd;
+}

@@ -42,7 +42,7 @@ export default function Header() {
       </div>
       <div className="iconCart">
         <span>{cart.length}</span>
-        <Link to="cart">
+        <Link to="/cart">
           <img src={iconCart} width="30" alt="Cart item" />
         </Link>
       </div>

@@ -1,23 +1,31 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
-import { DataContext } from './Data';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { store } from './Store';
 
 export default function FormInput() {
-  const [ todo, setTodo ] = useContext(DataContext);
   const [ todoName, setTodoName ] = useState('');
   const todoInput = useRef();
-  const addTodo = e => {
-    e.preventDefault();
-    setTodo([...todo, {name: todoName, complete: false}]); 
-    setTodo('');
-    todoInput.current.focus();
-  };
   useEffect(() => {
     todoInput.current.focus();
   }, []);
+
+  const dispatch = useDispatch(store);
+  const createTodo = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "create",
+      todo: {
+        name: todoName
+      }
+    });
+    setTodoName('');
+    todoInput.current.focus();
+  }
+
   return (
     <form action="" 
       autoComplete="off"
-      onSubmit={addTodo}
+      onSubmit={createTodo}
     >
       <input type="text"
         name="todo"

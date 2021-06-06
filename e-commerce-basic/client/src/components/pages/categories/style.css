@@ -1,0 +1,40 @@
+.category-page {
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+.category-page form {
+  width: 290px;
+  margin-bottom: 20px;
+}
+.category-page label {
+  display: block;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.category-page input, button {
+  height: 35px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #555;
+}
+.category-page input { width: 210px; }
+.category-page button {
+  width: 70px;
+  background: #555;
+  color: white;
+  margin-left: 10px;
+}
+.category-page .row {
+  min-width: 290px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}

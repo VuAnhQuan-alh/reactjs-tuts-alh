@@ -1,16 +1,36 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { store } from './Store';
 
-export default function Items({ todo, id, checkComplete, handleEditTodo }) {
+export default function Items({ todo, id }) {
+  const dispatch = useDispatch(store);
+  const [check, setCheck] = useState(todo.complete);
+  const checkComplete = (id) => {
+    setCheck(!check);
+    dispatch({
+      type: 'completed',
+      check: !check,
+      todo: {
+        id: id
+      }
+    });
+  }
+
   const [onEdit, setOnEdit] = useState(false);
   const [editVal, setEditVal] = useState(todo.name);
-  console.log(todo)
-  const handleOnEdit = () => {
-    setOnEdit(true);
-  };
-  const handleSave = id => {
+  const handleSave = (id) => {
+    if (editVal !== todo.name) {
+      dispatch({
+        type: 'update',
+        todo: {
+          id: id,
+          name: editVal
+        }
+      });
+    }
     setOnEdit(false);
-    editVal ? handleEditTodo(editVal, id) : handleEditTodo(todo.name)
   }
+
   if (onEdit) {
     return (
       <li>
@@ -34,7 +54,7 @@ export default function Items({ todo, id, checkComplete, handleEditTodo }) {
           />
           {todo.name}
         </label>
-        <button disabled={todo.complete} onClick={handleOnEdit}>Edit</button>
+        <button disabled={todo.complete} onClick={() => setOnEdit(!onEdit)}>Edit</button>
       </li>
     )
   }

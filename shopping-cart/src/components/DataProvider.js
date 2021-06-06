@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useMemo, memo } from 'react';
 
 export const DataContext = createContext();
 
@@ -102,6 +102,7 @@ const DataProvider = (props) => {
     }
   ]);
   const [cart, setCart] = useState([]);
+
   const addCart = id => {
     const check = cart.every(item => item._id !== id);
     if (check) {
@@ -129,6 +130,7 @@ const DataProvider = (props) => {
   return (
     <DataContext.Provider value={value}>
       {props.children}
+      {console.log(props)}
     </DataContext.Provider>
   );
 }

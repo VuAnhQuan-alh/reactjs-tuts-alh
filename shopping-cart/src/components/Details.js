@@ -38,7 +38,7 @@ const Details = () => {
         <p>{result.description}</p>
         <p>{result.content}</p>
         <DetailThumb images={result.images} setIndex={setIndex} />
-        <Link to="cart" className="btn-cart" onClick={() => addCart()}>Add to cart</Link>
+        <Link to="/cart" className="btn-cart" onClick={() => addCart(result._id)}>Add to cart</Link>
       </div>
     </div>
   );

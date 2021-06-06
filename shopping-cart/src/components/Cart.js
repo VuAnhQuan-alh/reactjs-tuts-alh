@@ -5,7 +5,7 @@ import { DataContext } from './DataProvider';
 import Sizes from './Sizes';
 
 const Cart = () => {
-  const { products: [products], addCart, cart: [cart, setCart] } = useContext(DataContext);
+  const { cart: [cart, setCart] } = useContext(DataContext);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {

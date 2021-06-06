@@ -1,29 +1,31 @@
-import React, { useContext, useState } from 'react';
-import { DataContext } from './Data';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { store } from './Store';
 
 export default function Footer() {
   const [checkAll, setCheckAll] = useState(false);
-  const [todo, setTodo] = useContext(DataContext);
-  const handleCheckAll = () => {
-    const newTodo = [...todo];
-    newTodo.forEach(todo => {
-      todo.complete = !checkAll;
+  const list = useSelector(state => state.list);
+  const dispatch = useDispatch(store);
+
+  const handleChangeCheckAll = () => {
+    dispatch({
+      type: "completeAll",
+      check: checkAll
     });
-    setTodo(newTodo);
     setCheckAll(!checkAll);
-  };
-  const newTodoComplete = () => {
-    return todo.filter(todo => todo.complete === false).length;
-  };
+  }
+
   const deleteTodo = () => {
-    const newTodo = todo.filter(todo => todo.complete === false);
-    setTodo(newTodo);
+    dispatch({
+      type: "delete"
+    });
     setCheckAll(false);
   }
+
   return (
     <>
     {
-      todo.length === 0 ?
+      list.length === 0 ?
         <h2>Congratulations! Nothings todo.</h2>
         :
         <div className="row">
@@ -31,12 +33,12 @@ export default function Footer() {
             <input type="checkbox"
               name="all"
               id="all"
-              onChange={handleCheckAll}
+              onChange={handleChangeCheckAll}
               checked={checkAll}
             />
             All
           </label>
-          <p>You have {newTodoComplete} to do</p>
+          <p>You have {list.filter(item => item.complete === false).length} to do</p>
           <button id="delete" onClick={deleteTodo}>Delete</button>
         </div>
     }
